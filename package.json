@@ -1,0 +1,44 @@
+{
+    "name": "line-edit",
+    "version": "1.0.2",
+    "description": "Edit line",
+    "main": "dist/index.js",
+    "bin": {
+        "lineEdit": "./lineEdit"
+    },
+    "scripts": {
+        "start": "nodemon --watch src --watch index.js --ext js --exec babel-node index.js --ignore 'node_modules' -q --no-stdin",
+        "s": "babel-node index.js",
+        "st2art": "nodemon --watch dist --ext js --exec node dist/index.js --ignore 'node_modules' -q --no-stdin",
+        "build": "run-s pat parcel deploy pub",
+        "parcel": "parcel build index.js --target=node",
+        "deploy": "pkg dist/index.js -o lineEdit --targets=macos",
+        "pat": "npm version patch -f",
+        "pub": "npm publish"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@babel/plugin-proposal-class-properties": "^7.4.4",
+        "@babel/plugin-syntax-class-properties": "^7.2.0",
+        "@babel/preset-env": "^7.4.4",
+        "enquirer": "^2.3.0",
+        "wirez": "^0.0.2",
+        "wu": "^2.1.0"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.4.4",
+        "@babel/core": "^7.4.4",
+        "@babel/node": "^7.2.2",
+        "ansi-colors": "^3.2.4",
+        "boxen": "^3.2.0",
+        "chalk": "^2.4.2",
+        "inquirer": "^6.3.1",
+        "line-by-line": "^0.1.6",
+        "line-replace": "^1.0.2",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^1.17.0",
+        "yargs": "^13.2.2",
+        "yosay": "^2.0.2"
+    }
+}
